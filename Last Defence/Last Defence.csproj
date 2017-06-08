@@ -132,6 +132,7 @@
     <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_UI_Manager.cs" />
     <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_UI_rescale_TosceenSize.cs" />
     <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_Upgrade_Asigment.cs" />
+    <Compile Include="Assets\HL_Scripts\Save and Load\HL_Save_Load_Manager.cs" />
     <Compile Include="Assets\HL_Scripts\Turret Behaviour\HL_Turret_System.cs" />
     <Compile Include="Assets\HL_Scripts\Turret Behaviour\HL_Weapon_Equipted.cs" />
     <Compile Include="Assets\HL_Scripts\Turret Behaviour\HL_Weapon_Stats.cs" />

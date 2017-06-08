@@ -14,7 +14,7 @@ public class HL_Stats_Display : MonoBehaviour {
     Text AmunitionUpgrade ;
     Text InpactDamage;
     Text AoeDAmage;
-
+    Text CurentWave;
 
 
     public HL_Upgrade_Manager manager;
@@ -31,7 +31,7 @@ public class HL_Stats_Display : MonoBehaviour {
        // AmunitionUpgrade = gameObject.transform.GetChild(0).GetComponent<Text>();
         InpactDamage = gameObject.transform.GetChild(6).GetComponent<Text>();
         AoeDAmage = gameObject.transform.GetChild(7).GetComponent<Text>();
-
+        CurentWave = gameObject.transform.GetChild(9).GetComponent<Text>();
     }
 	
 	// Update is called once per frame
@@ -50,5 +50,6 @@ public class HL_Stats_Display : MonoBehaviour {
         InpactDamage.text = "InpactDamage:" + "" + manager.in_InpactAmmo_Modifier.ToString();
         AoeDAmage.text = "AoeDAmage:" + "" + manager.in_AOE_Ammo_Modifier.ToString();
         //PowerCore.text = "PowerCore:" + "" + manager.in_CorePoint.ToString();
+        CurentWave.text = "Wave" + "" + HL_Level_Manager.instance.in_Current_Round.ToString();
     }
 }
