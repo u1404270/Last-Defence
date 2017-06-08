@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HL_Upgrade_Asigment : MonoBehaviour {
+    public static HL_Upgrade_Asigment instance;
+
     public HL_Upgrade_Manager UP_Manager;
    public GameObject holder;
     public GameObject Quad;
@@ -13,6 +15,8 @@ public class HL_Upgrade_Asigment : MonoBehaviour {
 
     private void Start()
     {
+        instance = this;
+
         UP_Manager = holder.GetComponent<HL_Upgrade_Manager>();
         UP_Manager.instaled_Weapon = HL_Weapon_Equipted.FromKey(WeaponKey.RotaryCannon);
         UP_Manager.instaled_PoweCore = HL_Upgrade_Enum.FromKey(UpgradeKey.PoerCoreLevel_1);
@@ -150,9 +154,7 @@ public class HL_Upgrade_Asigment : MonoBehaviour {
 
     }
 
-
-
-    void reset()
+   public  void reset()
     {
         UP_Manager.in_Base_AmmoDump = 0;
         UP_Manager.in_base_Mag_size = 0;

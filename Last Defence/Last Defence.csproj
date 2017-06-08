@@ -123,18 +123,21 @@
     <Compile Include="Assets\Default Unity Inport\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Default Unity Inport\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Default Unity Inport\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\HL_Scripts\HL_Enemy_Script\HL_Spawner.cs" />
     <Compile Include="Assets\HL_Scripts\HL_Enemy_Script\HL_TEmp_Enemy_Health.cs" />
     <Compile Include="Assets\HL_Scripts\HL_Level_Manager.cs" />
     <Compile Include="Assets\HL_Scripts\HL_PrefabHolder.cs" />
+    <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_Buttons_Manager.cs" />
+    <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_Stats_Display.cs" />
+    <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_UI_Manager.cs" />
+    <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_UI_rescale_TosceenSize.cs" />
+    <Compile Include="Assets\HL_Scripts\HL_UI_Skripts\HL_Upgrade_Asigment.cs" />
     <Compile Include="Assets\HL_Scripts\Turret Behaviour\HL_Turret_System.cs" />
     <Compile Include="Assets\HL_Scripts\Turret Behaviour\HL_Weapon_Equipted.cs" />
     <Compile Include="Assets\HL_Scripts\Turret Behaviour\HL_Weapon_Stats.cs" />
     <Compile Include="Assets\HL_Scripts\Upgrades Enum and Manager\HL_Upgrade_Enum.cs" />
     <Compile Include="Assets\HL_Scripts\Upgrades Enum and Manager\HL_Upgrade_Manager.cs" />
     <Compile Include="Assets\HL_Scripts\Upgrades Enum and Manager\HL_Upgrade_Stats.cs" />
-    <Compile Include="Assets\HL_UI_Skripts\HL_Stats_Display.cs" />
-    <Compile Include="Assets\HL_UI_Skripts\HL_UI_Manager.cs" />
-    <Compile Include="Assets\HL_UI_Skripts\HL_Upgrade_Asigment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Asset Store Downlaods\BloodSFX\ReadMe.txt" />

@@ -20,7 +20,9 @@ public class HL_TEmp_Enemy_Health : MonoBehaviour {
         health -= damageRecived;
         if ( health <= 0)
         {
+            HL_Level_Manager.instance.TotalTargets.Remove(gameObject);
             Destroy(gameObject);
+            
         }
     }
 }

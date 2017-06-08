@@ -209,7 +209,6 @@ public class HL_Upgrade_Manager : MonoBehaviour
         }
     }
 
-
     // Use this for initialization
     void Start()
     {

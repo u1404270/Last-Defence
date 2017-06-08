@@ -44,6 +44,12 @@ public enum UpgradeKey
     AmmoUpgrade_Mod_4,
     AmmoUpgrade_Mod_5,
 
+    Reload_Mod_0,
+    Reload_Mod_1,
+    Reload_Mod_2,
+    Reload_Mod_3,
+    Reload_Mod_4,
+
 }
 public class HL_Upgrade_Enum : HL_Upgrade_Stats
 {
@@ -283,6 +289,13 @@ public class HL_Upgrade_Enum : HL_Upgrade_Stats
                     added_Quad_AOE_Ammo_Mod = 0,
                     added_Rot_AOE_Ammo_Mod = 0,
                     added_Cannon_AOE_Ammo_Mod = 0,
+                };
+                break;
+            case UpgradeKey.Reload_Mod_0:
+                ret = new HL_Upgrade_Enum()
+                {
+                    UpgradeType = UpgradeSlotType.ReloadSlot,
+                    added_Reload_Mod = 0,
                 };
                 break;
         }

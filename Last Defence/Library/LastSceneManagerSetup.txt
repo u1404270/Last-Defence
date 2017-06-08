@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/HL_Sceens/Andy Turret Creation.unity
+- path: Assets/HL_Sceens/MainMenu.unity
   isLoaded: 1
   isActive: 1

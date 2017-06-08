@@ -30,22 +30,29 @@ public class HL_Turret_System : MonoBehaviour
     public GameObject[] AOETargets;
     public List<GameObject> TargetsInRange = new List<GameObject>();
     public GameObject OriginTarget;
+
+
+
+
     // Use this for initialization
     void Start()
     {
         UP_Manager = gameObject.GetComponent<HL_Upgrade_Manager>();
+       
         turret = this.transform.parent.gameObject;
         //Deactivate();
     }
     // Update is called once per frame
     void Update()
     {
-        //constant functions that have to be triggered once per frame
-        Turret_Movement();
-        //Turret_Reload();
-        Turret_Fire();
-        //
-
+        if (HL_Level_Manager.instance.bl_Static == false)
+        {
+            //constant functions that have to be triggered once per frame
+            Turret_Movement();
+            //Turret_Reload();
+            Turret_Fire();
+            //
+        }
     }
     // this function looks at managing the rotation of the turret and camera.
     void Turret_Movement()
