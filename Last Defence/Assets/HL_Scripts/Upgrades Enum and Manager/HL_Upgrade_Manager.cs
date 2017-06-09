@@ -58,8 +58,9 @@ public class HL_Upgrade_Manager : MonoBehaviour
         get
         {
             float ret = fl_Base_Reload;
-            if (Instaled_Reload_Modifier != null) ret += Instaled_Reload_Modifier.added_Reload_Mod;
             if (instaled_Weapon != null) ret += instaled_Weapon.WeaponBase_ReloadSpeed;
+            if (Instaled_Reload_Modifier != null) ret *= Instaled_Reload_Modifier.added_Reload_Mod;
+           
             return ret;
         }
         set { }
@@ -75,8 +76,9 @@ public class HL_Upgrade_Manager : MonoBehaviour
         get
         {
             float ret = fl_Base_FireRate;
-            if (instaled_FireRate_Modifier != null) ret += instaled_FireRate_Modifier.added_Fire_Rate_Mod;
             if (instaled_Weapon != null) ret += instaled_Weapon.WeaponBase_FireRate;
+            if (instaled_FireRate_Modifier != null) ret += instaled_FireRate_Modifier.added_Fire_Rate_Mod;
+            
             return ret;
         }
         set { }

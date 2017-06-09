@@ -23,6 +23,7 @@ public class HL_Upgrade_Asigment : MonoBehaviour {
         UP_Manager.instaled_Magazine = HL_Upgrade_Enum.FromKey(UpgradeKey.MagazineMod_0);
         UP_Manager.instaled_AmmoDump = HL_Upgrade_Enum.FromKey(UpgradeKey.AmmoDumpMod_0);
         UP_Manager.Instaled_Ammo_Upgrade = HL_Upgrade_Enum.FromKey(UpgradeKey.AmmoUpgrade_Mod_0);
+        UP_Manager.Instaled_Reload_Modifier = HL_Upgrade_Enum.FromKey(UpgradeKey.Reload_Mod_0);
         Quad.SetActive(false);
         rot.SetActive(true);
         cannon.SetActive(false);
@@ -153,8 +154,22 @@ public class HL_Upgrade_Asigment : MonoBehaviour {
         UP_Manager.Instaled_Ammo_Upgrade = HL_Upgrade_Enum.FromKey(UpgradeKey.AmmoUpgrade_Mod_5);
 
     }
+    public void Reloade_Mod_1()
+    {
+        UP_Manager.Instaled_Reload_Modifier = HL_Upgrade_Enum.FromKey(UpgradeKey.Reload_Mod_1);
 
-   public  void reset()
+    }
+    public void Reload_Mod_2()
+    {
+        UP_Manager.Instaled_Reload_Modifier = HL_Upgrade_Enum.FromKey(UpgradeKey.Reload_Mod_2);
+
+    }
+    public void Reload_Mod_3()
+    {
+        UP_Manager.Instaled_Reload_Modifier = HL_Upgrade_Enum.FromKey(UpgradeKey.Reload_Mod_3);
+    }
+
+    public  void reset()
     {
         UP_Manager.in_Base_AmmoDump = 0;
         UP_Manager.in_base_Mag_size = 0;

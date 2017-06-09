@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class HL_Buttons_Manager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public string st_MainMenuName;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -45,7 +45,10 @@ public class HL_Buttons_Manager : MonoBehaviour {
 
     }
 
-
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(st_MainMenuName);
+    }
 
 
 

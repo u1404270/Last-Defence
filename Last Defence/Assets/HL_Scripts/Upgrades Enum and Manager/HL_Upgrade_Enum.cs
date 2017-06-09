@@ -48,8 +48,7 @@ public enum UpgradeKey
     Reload_Mod_1,
     Reload_Mod_2,
     Reload_Mod_3,
-    Reload_Mod_4,
-
+    
 }
 public class HL_Upgrade_Enum : HL_Upgrade_Stats
 {
@@ -295,9 +294,31 @@ public class HL_Upgrade_Enum : HL_Upgrade_Stats
                 ret = new HL_Upgrade_Enum()
                 {
                     UpgradeType = UpgradeSlotType.ReloadSlot,
-                    added_Reload_Mod = 0,
+                    added_Reload_Mod = 1,
                 };
                 break;
+            case UpgradeKey.Reload_Mod_1:
+                ret = new HL_Upgrade_Enum()
+                {
+                    UpgradeType = UpgradeSlotType.ReloadSlot,
+                    added_Reload_Mod = 0.95f,
+                };
+                break;
+            case UpgradeKey.Reload_Mod_2:
+                ret = new HL_Upgrade_Enum()
+                {
+                    UpgradeType = UpgradeSlotType.ReloadSlot,
+                    added_Reload_Mod = 0.85f,
+                };
+                break;
+            case UpgradeKey.Reload_Mod_3:
+                ret = new HL_Upgrade_Enum()
+                {
+                    UpgradeType = UpgradeSlotType.ReloadSlot,
+                    added_Reload_Mod = 0.70f,
+                };
+                break;
+
         }
         return ret;
     }

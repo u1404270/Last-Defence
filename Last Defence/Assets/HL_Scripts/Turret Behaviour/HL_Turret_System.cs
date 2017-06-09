@@ -8,8 +8,10 @@ public class HL_Turret_System : MonoBehaviour
     [Header("Ratation Proprieties")]
     public bool Invert_Mouse;
     public float mouseSensisivity = 5.0f;
+
     public float Up_Down_Clamp;
     public float Left_Right_Clamp;
+
     public HL_Upgrade_Manager UP_Manager;
     Vector2 mouselook;
     Vector2 smothV;
@@ -19,12 +21,12 @@ public class HL_Turret_System : MonoBehaviour
     float reloadTime;
 
     [Header("Fire Rate Proprieties")]
-
+    public bool Fiering;
     public Camera MyCamera;
 
     public ParticleSystem Flash;
     public GameObject Inpact;
-    private  float Fire_Delay;
+    private float Fire_Delay;
 
 
     public GameObject[] AOETargets;
@@ -38,7 +40,6 @@ public class HL_Turret_System : MonoBehaviour
     void Start()
     {
         UP_Manager = gameObject.GetComponent<HL_Upgrade_Manager>();
-       
         turret = this.transform.parent.gameObject;
         //Deactivate();
     }
@@ -60,14 +61,30 @@ public class HL_Turret_System : MonoBehaviour
         // this function takes the speed value from all the upgrades and base and makes the mouse lerp / move to the apropriate cordonates
         // of the maouse. 
         var curentPos = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        curentPos = Vector2.Scale(curentPos, new Vector2(UP_Manager.in_Speed_Modifier / mouseSensisivity, UP_Manager.in_Speed_Modifier / mouseSensisivity));
-        smothV.x = Mathf.Lerp(smothV.x, curentPos.x, 1f / mouseSensisivity);
-        smothV.y = Mathf.Lerp(smothV.y, curentPos.y, 1f / mouseSensisivity);
-        mouselook += smothV;
         // this clamps the rotation of the campera up and down, left and right.
         mouselook.y = Mathf.Clamp(mouselook.y, -Up_Down_Clamp, Up_Down_Clamp);
         mouselook.x = Mathf.Clamp(mouselook.x, -Left_Right_Clamp, Left_Right_Clamp);
         //
+        if (Fiering == false)
+        {
+            curentPos = Vector2.Scale(curentPos, new Vector2(UP_Manager.in_Speed_Modifier / mouseSensisivity, UP_Manager.in_Speed_Modifier / mouseSensisivity));
+        }
+        
+        if (Fiering == true)
+        {
+            curentPos = Vector2.Scale(curentPos, new Vector2((UP_Manager.in_Speed_Modifier / mouseSensisivity) /2, (UP_Manager.in_Speed_Modifier / mouseSensisivity) / 2));
+        }
+        if (Invert_Mouse == false)
+        {
+            smothV.x = Mathf.Lerp(smothV.x, curentPos.x, 1f / mouseSensisivity);
+            smothV.y = Mathf.Lerp(smothV.y, curentPos.y, 1f / mouseSensisivity);
+        }
+        if (Invert_Mouse == true)
+        {
+            smothV.x = Mathf.Lerp(smothV.x, -curentPos.x, 1f / mouseSensisivity);
+            smothV.y = Mathf.Lerp(smothV.y, -curentPos.y, 1f / mouseSensisivity);
+        }
+        mouselook += smothV;
         // this apply the roatiaon to the camera and the turret that it is atached to.
         transform.localRotation = Quaternion.AngleAxis(-mouselook.y, Vector3.right);
         turret.transform.localRotation = Quaternion.AngleAxis(mouselook.x, turret.transform.up);
@@ -79,20 +96,24 @@ public class HL_Turret_System : MonoBehaviour
         if (UP_Manager.in_Magazine_Modifier <= 0)
         {
             reloadTime += Time.deltaTime;
-            
+
             if (reloadTime >= UP_Manager.instaled_Weapon.WeaponBase_ReloadSpeed)
             {
                 Turret_Reload();
             }
         }
-        if (Input.GetButton("Fire1") && Time.time >= Fire_Delay)
+        if (Input.GetButton("Fire1"))
         {
-            if (UP_Manager.in_Magazine_Modifier > 0)
+            Fiering = true;
+            if (Time.time >= Fire_Delay)
             {
-                Shoot();
+                if (UP_Manager.in_Magazine_Modifier > 0)
+                {
+                    Shoot();
+                }
             }
         }
-        else Flash.Stop(); 
+        else Fiering = false; Flash.Stop();
     }
     void Shoot()
     {
@@ -100,7 +121,7 @@ public class HL_Turret_System : MonoBehaviour
         // Trigger Flash when Fiering and add next time to shot
         Flash.Play();
         UP_Manager.in_base_Mag_size--;
-        
+
         Fire_Delay = Time.time + UP_Manager.fl_FireRate_Modifier;
         //Internal_Fire_Rate = Time.deltaTime;
         RaycastHit hit;
@@ -112,7 +133,7 @@ public class HL_Turret_System : MonoBehaviour
                 if (target != null)
                 {
                     OriginTarget = target.gameObject;
-                    
+
                     target.ReviceDamage(UP_Manager.in_InpactAmmo_Modifier);
                     AOETargets = GameObject.FindGameObjectsWithTag("Target");
                     DoAOEDamage();
@@ -133,7 +154,7 @@ public class HL_Turret_System : MonoBehaviour
     }
     void DoAOEDamage()
     {
-       
+
         float distance = 10.0f;
 
         Vector3 This_position = OriginTarget.transform.position;

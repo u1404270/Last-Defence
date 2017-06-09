@@ -5,7 +5,9 @@ using UnityEngine;
 public class HL_Upgrade_Stats {
     public int added_corePoints = 0;
     public float added_Speed_Mod = 0.0f;
+
     public float added_Reload_Mod = 0.0f;
+
     public float added_Fire_Rate_Mod;
 
     public int added_QuadInpactAmmo_Mod = 0;

@@ -46,6 +46,7 @@ public class HL_UI_Manager : MonoBehaviour {
     {
 
     }
+
     public void ExitGame()
     {
         Application.Quit();
